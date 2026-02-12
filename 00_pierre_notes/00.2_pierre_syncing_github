@@ -1,0 +1,168 @@
+═══════════════════════════════════════════════════════════════
+  EXØDUS — SYNCING WITH GITHUB (for Pierre)
+═══════════════════════════════════════════════════════════════
+
+This doc explains how to push your local changes to 
+GitHub and pull changes from GitHub to your local machine.
+
+  GitHub Repo: https://github.com/studiozo/exodus_v1
+  Main Branch: main
+
+
+───────────────────────────────────────────────────────────────
+  📤  PUSHING YOUR CHANGES → GITHUB
+───────────────────────────────────────────────────────────────
+
+When you've made edits locally and want to save them 
+to GitHub:
+
+  1. Open Terminal
+
+  2. Navigate to the project:
+
+     cd "/Users/studiozo/Library/CloudStorage/GoogleDrive-zo@studiozonyc.com/My Drive/05 PRØJECTS/03 ZØ BØDYSUIT/07 EXØDUS x PIERRE /01 CODE/exodus-web-build/exodus_v1-main"
+
+  3. Check what changed:
+
+     git status
+
+     → This shows you which files were modified, added, 
+       or deleted since the last commit.
+
+  4. Stage all changes:
+
+     git add .
+
+     → The dot (.) means "everything." This stages ALL
+       your changes for commit.
+
+  5. Commit with a message:
+
+     git commit -m "describe what you changed"
+
+     → Example messages:
+       "updated testimonials images"
+       "fixed contact section text"
+       "added new portfolio pieces"
+
+  6. Push to GitHub:
+
+     git push origin main
+
+     → This sends your commit to the remote repo.
+     → Anyone with access can now see the changes on 
+       GitHub.
+
+
+───────────────────────────────────────────────────────────────
+  📥  PULLING CHANGES ← GITHUB
+───────────────────────────────────────────────────────────────
+
+If someone else made changes on GitHub (or you made 
+changes from another computer), pull them down:
+
+  1. Open Terminal, navigate to the project (same cd 
+     command as above)
+
+  2. Pull the latest:
+
+     git pull origin main
+
+     → This downloads any new commits from GitHub and 
+       merges them into your local code.
+
+  ⚠️  If you get a MERGE CONFLICT:
+     → That means you and someone else edited the same 
+       lines. Don't panic — ask ZØ for help.
+
+
+───────────────────────────────────────────────────────────────
+  🔄  THE FULL SYNC WORKFLOW
+───────────────────────────────────────────────────────────────
+
+  BEFORE you start working:
+
+     git pull origin main          ← get latest changes
+
+  WHILE you work:
+
+     npm run dev                   ← preview at localhost:3000
+     (edit files, save, repeat)
+
+  WHEN you're done:
+
+     git add .                     ← stage everything
+     git commit -m "your message"  ← save snapshot
+     git push origin main          ← send to GitHub
+
+
+  ┌─────────────────────────────────────────────────┐
+  │                                                 │
+  │    git pull   →   EDIT   →   git push           │
+  │       ↑                         │               │
+  │       └─────────────────────────┘               │
+  │                                                 │
+  │    Always pull before you start.                │
+  │    Always push when you're done.                │
+  │                                                 │
+  └─────────────────────────────────────────────────┘
+
+
+───────────────────────────────────────────────────────────────
+  📋  QUICK COPY-PASTE COMMANDS
+───────────────────────────────────────────────────────────────
+
+  # Navigate to project
+  cd "/Users/studiozo/Library/CloudStorage/GoogleDrive-zo@studiozonyc.com/My Drive/05 PRØJECTS/03 ZØ BØDYSUIT/07 EXØDUS x PIERRE /01 CODE/exodus-web-build/exodus_v1-main"
+
+  # Pull latest from GitHub
+  git pull origin main
+
+  # See what you changed
+  git status
+
+  # Push your changes (3-step combo)
+  git add .
+  git commit -m "your message here"
+  git push origin main
+
+  # See recent commit history
+  git log --oneline -5
+
+
+───────────────────────────────────────────────────────────────
+  ⚡  SHORTCUT — ALL-IN-ONE PUSH
+───────────────────────────────────────────────────────────────
+
+  Copy-paste this entire block to push everything at once:
+
+  git add . && git commit -m "update" && git push origin main
+
+
+───────────────────────────────────────────────────────────────
+  ❓  COMMON ISSUES
+───────────────────────────────────────────────────────────────
+
+  "Your branch is behind" 
+  → Run: git pull origin main   (then push again)
+
+  "Permission denied"
+  → You need GitHub access. Ask ZØ to add you as a 
+    collaborator on the repo.
+
+  "Merge conflict"
+  → Don't force anything. Ask ZØ — it's an easy fix  
+    but can mess things up if done wrong.
+
+  "Nothing to commit"
+  → Your changes are already committed. Just push:
+    git push origin main
+
+  "fatal: not a git repository"
+  → You're in the wrong folder. Make sure you cd into
+    the exodus_v1-main folder first.
+
+
+═══════════════════════════════════════════════════════════════
+  Last updated: Feb 11, 2026
+═══════════════════════════════════════════════════════════════

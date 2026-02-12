@@ -1,0 +1,183 @@
+═══════════════════════════════════════════════════════════════
+  EXØDUS WEBSITE — EDIT & DEPLOY GUIDE (for Pierre)
+═══════════════════════════════════════════════════════════════
+
+Hey Pierre! This doc explains how to make edits to the 
+website, see them live, deploy, and make more edits after.
+
+
+───────────────────────────────────────────────────────────────
+  📁  PROJECT LOCATION
+───────────────────────────────────────────────────────────────
+
+The website code lives here (on Google Drive):
+
+  05 PRØJECTS / 03 ZØ BØDYSUIT / 07 EXØDUS x PIERRE /
+    01 CODE / exodus-web-build / exodus_v1-main /
+
+The GitHub repo is:
+  https://github.com/studiozo/exodus_v1
+
+
+───────────────────────────────────────────────────────────────
+  🛠  SETUP (first time only)
+───────────────────────────────────────────────────────────────
+
+1. Make sure you have Node.js installed
+   → Download from: https://nodejs.org (use the LTS version)
+
+2. Open Terminal and navigate to the project folder:
+
+   cd "/Users/studiozo/Library/CloudStorage/GoogleDrive-zo@studiozonyc.com/My Drive/05 PRØJECTS/03 ZØ BØDYSUIT/07 EXØDUS x PIERRE /01 CODE/exodus-web-build/exodus_v1-main"
+
+3. Install dependencies (only needed the first time, 
+   or after pulling new changes):
+
+   npm install
+
+
+───────────────────────────────────────────────────────────────
+  ✏️  STEP 1 — MAKE EDITS
+───────────────────────────────────────────────────────────────
+
+Edit the files you need. Here's what's what:
+
+  KEY FILES:
+  ├── App.tsx              ← Main app layout & all sections
+  ├── components/
+  │   ├── Contact.tsx      ← Contact / booking section
+  │   ├── Philosophy.tsx   ← Philosophy section
+  │   ├── Testimonials.tsx ← Client stories & images
+  │   └── ...              ← Other section components
+  ├── index.html           ← Page title, meta tags, fonts
+  └── public/
+      └── images/          ← All images (just drop files here)
+
+  COMMON EDITS:
+  • Change text       → Edit the .tsx file for that section
+  • Swap an image     → Replace the file in public/images/
+  • Add new images    → Drop into public/images/, reference 
+                         the path like '/images/yourfile.jpg'
+  • Change styles     → Look for <style> tags in App.tsx or
+                         the component's own CSS
+
+
+───────────────────────────────────────────────────────────────
+  👀  STEP 2 — PREVIEW LOCALLY
+───────────────────────────────────────────────────────────────
+
+1. In Terminal (from the project folder), run:
+
+   npm run dev
+
+2. Open your browser and go to:
+
+   http://localhost:3000
+
+3. The page will AUTO-REFRESH as you save edits — no need
+   to restart anything. Just save the file and watch it 
+   update in the browser.
+
+4. When you're done previewing, press Ctrl+C in Terminal 
+   to stop the server.
+
+
+───────────────────────────────────────────────────────────────
+  🚀  STEP 3 — DEPLOY (push changes live)
+───────────────────────────────────────────────────────────────
+
+  ⚠️  HOSTING NOT SET UP YET
+  
+  The site currently runs locally only. We need to set up
+  hosting to make it live on the internet. Options:
+
+  A) FIREBASE HOSTING (recommended — free tier available)
+     → ZØ can set this up and give you the deploy command
+     → Once set up, deploying is just:
+        npm run build
+        firebase deploy
+
+  B) VERCEL (also free, very easy)
+     → Connect the GitHub repo at vercel.com
+     → Every push to GitHub auto-deploys
+     → No terminal commands needed after setup
+
+  C) NETLIFY (similar to Vercel)
+     → Connect GitHub repo at netlify.com
+     → Auto-deploys on push
+
+  ──────────────────────────────────
+
+  FOR NOW — TO SAVE YOUR WORK TO GITHUB:
+
+  1. In Terminal (from the project folder):
+
+     git add .
+     git commit -m "describe what you changed"
+     git push
+
+  2. This saves your code to GitHub but does NOT put it
+     live on the internet yet (until hosting is set up).
+
+
+───────────────────────────────────────────────────────────────
+  🔄  STEP 4 — MAKE MORE EDITS (the loop)
+───────────────────────────────────────────────────────────────
+
+It's the same cycle every time:
+
+  ┌─────────────┐
+  │  EDIT CODE  │ ← Change .tsx files, images, etc.
+  └──────┬──────┘
+         │
+         ▼
+  ┌──────────────┐
+  │  PREVIEW IT  │ ← npm run dev → localhost:3000
+  └──────┬───────┘
+         │
+         ▼
+  ┌──────────────┐
+  │  HAPPY W IT? │
+  │  YES → DEPLOY│ ← git add . → git commit → git push
+  │  NO → GO BACK│    (+ deploy command once hosting is set)
+  └──────────────┘
+
+  That's it. Edit → Preview → Deploy → Repeat.
+
+
+───────────────────────────────────────────────────────────────
+  📝  QUICK REFERENCE COMMANDS
+───────────────────────────────────────────────────────────────
+
+  # Start local preview
+  npm run dev
+
+  # Stop local preview  
+  Ctrl+C
+
+  # Save changes to GitHub
+  git add .
+  git commit -m "your message here"
+  git push
+
+  # Build for production (before deploying)
+  npm run build
+
+  # Install dependencies (after pulling new code)
+  npm install
+
+
+───────────────────────────────────────────────────────────────
+  ❓  NEED HELP?
+───────────────────────────────────────────────────────────────
+
+  → If something breaks: don't panic, just ask ZØ
+  → If Terminal gives an error on npm run dev:
+    try running  npm install  first
+  → If images aren't showing: check the file path matches
+    what's in the code (paths are case-sensitive!)
+
+
+═══════════════════════════════════════════════════════════════
+  Last updated: Feb 11, 2026
+═══════════════════════════════════════════════════════════════
