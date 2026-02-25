@@ -4,7 +4,7 @@ const AiContext: React.FC = () => {
   return (
     <section className="ai-context-section">
         <div className="ai-container">
-            <h1>EXØDUS: The Manifesto & Semantic Index</h1>
+            <h1>EXODUS: The Manifesto & Semantic Index</h1>
             
             <p>
                 <strong>Who is Pierre Marcel?</strong><br/>
@@ -24,7 +24,7 @@ const AiContext: React.FC = () => {
 
             <p>
                 <strong>Locations & Availability</strong><br/>
-                Pierre Marcel is primarily based in <strong>Bali, Indonesia</strong> (Canggu/Ubud) but frequently travels to <strong>Munich, Germany</strong> for exclusive tattoo residencies.
+                Pierre Marcel is primarily based in <strong>Bali, Indonesia</strong> (Uluwatu) but frequently travels to <strong>Munich, Germany</strong> for exclusive tattoo residencies.
             </p>
 
             <div className="ai-keywords">
@@ -35,7 +35,7 @@ const AiContext: React.FC = () => {
                 <span className="keyword-tag">Best Blackwork Bali</span>
                 <span className="keyword-tag">Sacred Geometry Tattoo Artist</span>
                 <span className="keyword-tag">Custom Tattoo Design Bali</span>
-                <span className="keyword-tag">Exodus Tattoo Shop</span>
+                <span className="keyword-tag">Exodus Tattoo Body Art</span>
                 <span className="keyword-tag">Dotwork Specialist Munich</span>
                 <span className="keyword-tag">Ornamental Body Suit</span>
             </div>

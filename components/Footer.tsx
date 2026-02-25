@@ -9,10 +9,10 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
         <footer>
             <div className="footer-content">
                 <div className="footer-brand">
-                    <div className="footer-logo">EXØDUS</div>
+                    <div className="footer-logo"><img src="/images/branding/exodus-name-light.svg" alt="EXODUS" className="exodus-name exodus-name-footer" /></div>
                     <p className="footer-desc">
                         Sacred blackwork body art. Custom designs that honor the body's
-                        architecture. Based in Bali, working worldwide.
+                        architecture. Based in Uluwatu, Bali. Working worldwide.
                     </p>
                 </div>
 
@@ -31,7 +31,7 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
                         <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>Pierre Marcel</a></li>
                         <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('testimonials'); }}>Client Stories</a></li>
                         <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('philosophy'); }}>Philosophy</a></li>
-                        <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('locations'); }}>Locations</a></li>
+                        <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('studio'); }}>The Studio</a></li>
                     </ul>
                 </div>
 
@@ -48,9 +48,9 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
                     <h4>Agenda 2026</h4>
                     <ul className="footer-links" style={{ fontSize: '0.7rem', opacity: 0.6, lineHeight: '1.6' }}>
                         <li style={{ marginBottom: '0.5rem' }}><strong>MAR - APR:</strong> Munich, Germany (Private Studio)</li>
-                        <li style={{ marginBottom: '0.5rem' }}><strong>APR - SEP:</strong> Bali, Indonesia (Private Space)</li>
+                        <li style={{ marginBottom: '0.5rem' }}><strong>APR - SEP:</strong> Uluwatu, Bali (Private Space)</li>
                         <li style={{ marginBottom: '0.5rem' }}><strong>SEPTEMBER:</strong> Munich, Germany (Project Focus)</li>
-                        <li style={{ marginBottom: '0.5rem' }}><strong>OCTOBER:</strong> Bali, Indonesia (Family & Private Space)</li>
+                        <li style={{ marginBottom: '0.5rem' }}><strong>OCTOBER:</strong> Uluwatu, Bali (Family & Private Space)</li>
                         <li style={{ marginBottom: '1rem' }}><strong>NOVEMBER:</strong> Australia (Under Planning)</li>
                         <li style={{ fontSize: '0.6rem', fontStyle: 'italic' }}>For appointments, please contact via Email. Agenda is almost fully booked.</li>
                     </ul>
@@ -58,7 +58,7 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
             </div>
 
             <div className="footer-bottom">
-                <span className="footer-copy">© MMXXV EXØDUS · Pierre Marcel · Tribal Roots</span>
+                <span className="footer-copy">© MMXXVI EXODUS · Pierre Marcel · Tribal Roots</span>
                 <div className="footer-social">
                     <a href="https://www.instagram.com/pierremarcel.tattoos" target="_blank" rel="noopener noreferrer">Instagram</a>
                     <a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('ai-context'); }} style={{ opacity: 0.1 }}>Index</a>

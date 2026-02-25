@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>02 — CANYON PASSAGE</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;0,6..96,900;1,6..96,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --void: #17130f;
+    --bone: #ddd4c6;
+    --smoke: #211c16;
+    --surface: #1c1710;
+    --tawny: #af846c;
+    --wheat: #956c55;
+    --briar: #765545;
+    --canyon-dusk: #8c6b57;
+    --tamarindo: #ca9e85;
+    --warm-white: #ddd4c6;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--void); color:var(--bone); font-family:'EB Garamond',serif; overflow-x:hidden; }
+
+  .tag { position:fixed; top:0; left:0; right:0; z-index:100; background:var(--tawny); color:var(--void); text-align:center; padding:10px; font-size:11px; letter-spacing:0.4em; text-transform:uppercase; font-family:system-ui; font-weight:600; }
+
+  .swatches { display:flex; height:56px; margin-top:40px; }
+  .sw { flex:1; display:flex; align-items:flex-end; justify-content:center; font-size:9px; letter-spacing:0.12em; font-family:monospace; padding-bottom:6px; }
+
+  .hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; padding:6rem 2rem; }
+  .hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 50% 50%, rgba(175,132,108,0.06) 0%, transparent 60%); }
+
+  .logo-mark { width:52px; margin-bottom:2.5rem; opacity:0.45; filter:sepia(0.3) brightness(1.2); }
+  .exodus-name { width:min(600px, 85vw); margin-bottom:1rem; filter:brightness(1.1) sepia(0.15); }
+  .subtitle { font-size:0.7rem; letter-spacing:0.6em; text-transform:uppercase; color:var(--wheat); font-family:'DM Sans',sans-serif; font-weight:300; }
+
+  .nav { display:flex; justify-content:center; gap:2.5rem; padding:1.8rem; border-top:1px solid rgba(221,212,198,0.06); border-bottom:1px solid rgba(221,212,198,0.06); background:var(--smoke); }
+  .nav a { color:var(--bone); text-decoration:none; font-size:0.65rem; letter-spacing:0.35em; text-transform:uppercase; opacity:0.4; font-family:'DM Sans',sans-serif; font-weight:300; transition:all 0.3s; }
+  .nav a:hover { opacity:1; color:var(--tawny); }
+
+  section { padding:5rem 2rem; max-width:880px; margin:0 auto; }
+  .label { font-size:0.6rem; letter-spacing:0.45em; text-transform:uppercase; color:var(--tawny); margin-bottom:1rem; display:block; font-family:'DM Sans',sans-serif; font-weight:400; }
+  .title { font-family:'Bodoni Moda',serif; font-size:clamp(2.2rem,5vw,3.8rem); font-weight:400; line-height:1.08; margin-bottom:2rem; }
+  .title .hi { color:var(--tamarindo); font-style:italic; }
+  .body { font-size:1.15rem; line-height:1.85; opacity:0.65; max-width:580px; }
+
+  .quote { border-left:2px solid var(--tawny); padding:2rem 0 2rem 2rem; margin:4rem 0; }
+  .quote p { font-family:'Bodoni Moda',serif; font-size:1.4rem; font-style:italic; line-height:1.6; }
+
+  .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin:3rem 0; }
+  .card { background:var(--surface); border:1px solid rgba(221,212,198,0.05); padding:2rem; transition:all 0.3s; }
+  .card:hover { border-color:var(--tawny); background:rgba(175,132,108,0.04); }
+  .card h3 { font-family:'Bodoni Moda',serif; font-size:1.15rem; margin-bottom:0.5rem; }
+  .card p { font-size:0.85rem; opacity:0.5; line-height:1.6; }
+
+  .btn { display:inline-block; padding:0.9rem 2.8rem; margin-top:2rem; border:1px solid var(--tawny); color:var(--tawny); background:transparent; font-family:'DM Sans',sans-serif; font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; cursor:pointer; transition:all 0.3s; font-weight:400; }
+  .btn:hover { background:var(--tawny); color:var(--void); }
+  .btn-f { display:inline-block; padding:0.9rem 2.8rem; margin-top:1rem; margin-left:1rem; border:none; background:var(--briar); color:var(--bone); font-family:'DM Sans',sans-serif; font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; cursor:pointer; transition:all 0.3s; font-weight:400; }
+  .btn-f:hover { background:var(--tawny); }
+
+  .div { height:1px; background:linear-gradient(to right, transparent, var(--wheat), transparent); max-width:180px; margin:0 auto; opacity:0.2; }
+
+  .fonts { margin:3rem 0; padding:2.5rem; background:var(--surface); border:1px solid rgba(221,212,198,0.03); }
+  .fr { margin-bottom:2rem; }
+  .fl { font-size:0.55rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--tawny); margin-bottom:0.4rem; font-family:system-ui; }
+  .f1 { font-family:'Bodoni Moda',serif; font-size:2.5rem; }
+  .f2 { font-family:'EB Garamond',serif; font-size:1.5rem; line-height:1.7; }
+  .f3 { font-family:'DM Sans',sans-serif; font-size:0.85rem; font-weight:300; letter-spacing:0.08em; }
+
+  .footer { text-align:center; padding:4rem 2rem; border-top:1px solid rgba(221,212,198,0.05); background:var(--smoke); }
+  .footer img { width:180px; margin-bottom:1rem; filter:brightness(1.1) sepia(0.15); }
+  .footer span { font-size:0.6rem; letter-spacing:0.2em; opacity:0.3; font-family:'DM Sans',sans-serif; }
+</style>
+</head>
+<body>
+
+<div class="tag">02 — <strong>CANYON PASSAGE</strong> — tawny brown + wheat penny + briar + warm charcoal</div>
+
+<div class="swatches">
+  <div class="sw" style="background:#17130f;color:#ddd4c6;">void</div>
+  <div class="sw" style="background:#211c16;color:#ddd4c6;">smoke</div>
+  <div class="sw" style="background:#765545;color:#ddd4c6;">briar</div>
+  <div class="sw" style="background:#8c6b57;color:#ddd4c6;">canyon</div>
+  <div class="sw" style="background:#956c55;color:#ddd4c6;">wheat</div>
+  <div class="sw" style="background:#af846c;color:#17130f;">tawny</div>
+  <div class="sw" style="background:#ca9e85;color:#17130f;">tamarindo</div>
+  <div class="sw" style="background:#ddd4c6;color:#17130f;">bone</div>
+</div>
+
+<div class="hero">
+  <img src="logo-light.png" class="logo-mark" alt="logo">
+  <img src="exodus-name-grey.png" class="exodus-name" alt="EXODUS">
+  <div class="subtitle">Tattoo Body Art</div>
+</div>
+
+<nav class="nav">
+  <a href="#">Philosophy</a><a href="#">Portfolio</a><a href="#">Process</a><a href="#">Locations</a><a href="#">Contact</a>
+</nav>
+
+<section>
+  <span class="label">Manifesto</span>
+  <h2 class="title">The Body<br>as <span class="hi">Temple</span></h2>
+  <p class="body">Every line carries intention. Every mark is a conversation between ancient geometry and living flesh. This is not decoration — this is ritual.</p>
+  <div class="quote"><p>"I chose the name EXODUS because it speaks to transformation, not escape."</p></div>
+  <button class="btn">Begin Your Journey</button>
+  <button class="btn-f">Book a Session</button>
+</section>
+
+<div class="div"></div>
+
+<section>
+  <span class="label">Font System</span>
+  <div class="fonts">
+    <div class="fr"><div class="fl">Display — Bodoni Moda</div><div class="f1">The Body as Temple</div></div>
+    <div class="fr"><div class="fl">Body — EB Garamond</div><div class="f2">Every line carries intention. Every mark is a conversation between ancient geometry and living flesh.</div></div>
+    <div class="fr"><div class="fl">UI — DM Sans Light</div><div class="f3">PHILOSOPHY &middot; PORTFOLIO &middot; PROCESS &middot; LOCATIONS &middot; CONTACT</div></div>
+  </div>
+</section>
+
+<section>
+  <span class="label">Elements</span>
+  <div class="cards">
+    <div class="card"><h3>Blackwork</h3><p>Dense coverage, bold geometry, ancestral forms.</p></div>
+    <div class="card"><h3>Ornamental</h3><p>Flowing patterns built on sacred ratio and symmetry.</p></div>
+    <div class="card"><h3>Tribal Roots</h3><p>Honoring the lineage. Marks that carry meaning.</p></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <img src="exodus-name-grey.png" alt="EXODUS"><br>
+  <span>&copy; MMXXVI EXODUS &middot; Pierre Marcel &middot; Bali</span>
+</footer>
+</body>
+</html>

@@ -12,7 +12,7 @@ const About: React.FC<AboutProps> = ({ openLightbox }) => {
                 <h1 className="hero-title" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', marginBottom: '1rem' }}>
                     <span className="line"><span>Pierre Marcel</span></span>
                 </h1>
-                <p className="hero-subtitle" style={{ opacity: 1, marginTop: '0.5rem' }}>Sacred Blackwork Artist · Munich · Bali</p>
+                <p className="hero-subtitle" style={{ opacity: 1, marginTop: '0.5rem' }}>Sacred Blackwork Artist · Uluwatu, Bali · Munich</p>
             </div>
 
             <div className="bio-grid-layout">
@@ -24,7 +24,7 @@ const About: React.FC<AboutProps> = ({ openLightbox }) => {
                             e.currentTarget.style.display = 'none';
                             if (e.currentTarget.parentElement) {
                                 e.currentTarget.parentElement.innerText = 'Pierre Marcel';
-                                e.currentTarget.parentElement.style.color = '#f2ede6';
+                                e.currentTarget.parentElement.style.color = '#e2d8cc';
                                 e.currentTarget.parentElement.style.fontFamily = 'Bodoni Moda';
                                 e.currentTarget.parentElement.style.fontSize = '1.5rem';
                                 e.currentTarget.parentElement.style.letterSpacing = '0.1em';
@@ -44,7 +44,7 @@ const About: React.FC<AboutProps> = ({ openLightbox }) => {
 
                     <div className="sidebar-section">
                         <p className="sidebar-label">Based</p>
-                        <p className="sidebar-value">Bali & Munich</p>
+                        <p className="sidebar-value">Uluwatu, Bali & Munich</p>
                     </div>
 
                     <div className="sidebar-section">
@@ -72,7 +72,7 @@ const About: React.FC<AboutProps> = ({ openLightbox }) => {
 
                 {/* Main Content */}
                 <div className="bio-content">
-                    <div className="about-quote" style={{ borderTop: '1px solid rgba(242, 237, 230, 0.1)', borderBottom: '1px solid rgba(242, 237, 230, 0.1)', padding: '2rem 0', textAlign: 'center', marginBottom: '4rem' }}>
+                    <div className="about-quote" style={{ borderTop: '1px solid rgba(226, 216, 204, 0.1)', borderBottom: '1px solid rgba(226, 216, 204, 0.1)', padding: '2rem 0', textAlign: 'center', marginBottom: '4rem' }}>
                         "A man without tattoos is invisible to the Gods"
                         <div className="sidebar-label" style={{ marginTop: '1rem', opacity: 0.5 }}>— Iban Proverb</div>
                     </div>
@@ -128,7 +128,7 @@ const About: React.FC<AboutProps> = ({ openLightbox }) => {
                     <div className="bio-chapter">
                         <h2 className="chapter-title">Present</h2>
                         <p className="bio-text">
-                            Currently based in <strong>Bali</strong> most of the year, working from his private home studio—and traveling regularly to <strong>Munich, Germany</strong> for guest spots and ongoing projects.
+                            Currently based in <strong>Uluwatu, Bali</strong> most of the year, working from his private home studio—and traveling regularly to <strong>Munich, Germany</strong> for guest spots and ongoing projects.
                         </p>
                         <p className="bio-text">
                             Pierre is always open to hearing new ideas and collaborating on meaningful projects. <strong>Send a message</strong>, and he will respond as soon as possible.

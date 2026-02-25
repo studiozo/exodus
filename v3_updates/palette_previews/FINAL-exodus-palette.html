@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EXODUS V3 — FINAL PALETTE</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;0,6..96,900;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  /* =============================================
+     EXODUS V3 — FINAL PALETTE
+     Desert Noir base + Kalahari darks + Dune Dust lights
+     ============================================= */
+  :root {
+    /* --- FOUNDATIONS --- */
+    --void: #100d0a;         /* desert noir deep charcoal */
+    --smoke: #191510;        /* desert noir warm dark */
+    --surface: #15120d;      /* card/panel bg */
+
+    /* --- DARK ACCENTS (Kalahari) --- */
+    --deep: #4a3830;         /* deep warm brown */
+    --red-pepper: #6b3a35;   /* muted oxide red */
+    --kalahari: #8c5c42;     /* warm brown anchor */
+
+    /* --- MID TONES --- */
+    --dust: #a0866b;         /* dusty earth mid */
+    --sunset: #c4875e;       /* warm amber highlight */
+
+    /* --- LIGHTS (Dune Dust) --- */
+    --sand: #c4b485;         /* warm sand */
+    --cream: #e2d8cc;        /* dusty cream / text */
+    --bone: #ede5d8;         /* lightest — highlights */
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--void); color:var(--cream); font-family:'Cormorant Garamond',serif; overflow-x:hidden; }
+
+  /* TAG */
+  .tag { position:fixed; top:0; left:0; right:0; z-index:100; background:var(--kalahari); color:var(--bone); text-align:center; padding:10px; font-size:11px; letter-spacing:0.4em; text-transform:uppercase; font-family:system-ui; font-weight:600; }
+
+  /* SWATCHES */
+  .swatches { display:flex; height:64px; margin-top:40px; }
+  .sw { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; font-size:8px; letter-spacing:0.1em; font-family:monospace; padding-bottom:5px; gap:1px; }
+  .sw .hex { opacity:0.8; }
+  .sw .lbl { opacity:0.5; font-size:7px; }
+
+  /* HERO */
+  .hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; padding:6rem 2rem; }
+  .hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 45% 55%, rgba(140,92,66,0.06) 0%, transparent 55%), radial-gradient(ellipse at 55% 45%, rgba(196,135,94,0.03) 0%, transparent 50%); }
+
+  .logo-mark { width:56px; margin-bottom:2.5rem; opacity:0.45; filter:sepia(0.25) brightness(1.15) saturate(0.9); }
+  .exodus-name { width:min(580px, 85vw); margin-bottom:1.2rem; filter:brightness(1.05) sepia(0.12); }
+  .subtitle { font-size:0.7rem; letter-spacing:0.6em; text-transform:uppercase; color:var(--dust); font-family:'DM Sans',sans-serif; font-weight:300; }
+
+  /* NAV */
+  .nav { display:flex; justify-content:center; gap:2.5rem; padding:1.8rem; border-top:1px solid rgba(226,216,204,0.05); border-bottom:1px solid rgba(226,216,204,0.05); background:var(--smoke); }
+  .nav a { color:var(--cream); text-decoration:none; font-size:0.65rem; letter-spacing:0.35em; text-transform:uppercase; opacity:0.35; font-family:'DM Sans',sans-serif; font-weight:300; transition:all 0.3s; }
+  .nav a:hover { opacity:1; color:var(--sunset); }
+
+  /* SECTIONS */
+  section { padding:5rem 2rem; max-width:880px; margin:0 auto; }
+
+  .label { font-size:0.6rem; letter-spacing:0.45em; text-transform:uppercase; color:var(--kalahari); margin-bottom:1rem; display:block; font-family:'DM Sans',sans-serif; font-weight:400; }
+  .title { font-family:'Bodoni Moda',serif; font-size:clamp(2.2rem,5vw,3.8rem); font-weight:400; line-height:1.08; margin-bottom:2rem; color:var(--bone); }
+  .title .hi { color:var(--sunset); font-style:italic; }
+  .body { font-size:1.15rem; line-height:1.85; opacity:0.65; max-width:580px; }
+
+  /* QUOTE */
+  .quote { border-left:2px solid var(--kalahari); padding:2rem 0 2rem 2rem; margin:4rem 0; }
+  .quote p { font-family:'Bodoni Moda',serif; font-size:1.4rem; font-style:italic; line-height:1.6; color:var(--sand); }
+
+  /* CARDS */
+  .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin:3rem 0; }
+  .card { background:var(--surface); border:1px solid rgba(226,216,204,0.04); padding:2rem; transition:all 0.3s; }
+  .card:hover { border-color:var(--kalahari); background:rgba(140,92,66,0.04); }
+  .card h3 { font-family:'Bodoni Moda',serif; font-size:1.15rem; margin-bottom:0.5rem; color:var(--sand); }
+  .card p { font-size:0.85rem; opacity:0.45; line-height:1.6; }
+
+  /* BUTTONS */
+  .btn { display:inline-block; padding:0.9rem 2.8rem; margin-top:2rem; border:1px solid var(--kalahari); color:var(--sunset); background:transparent; font-family:'DM Sans',sans-serif; font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; cursor:pointer; transition:all 0.3s; font-weight:400; }
+  .btn:hover { background:var(--kalahari); color:var(--bone); }
+  .btn-f { display:inline-block; padding:0.9rem 2.8rem; margin-top:1rem; margin-left:1rem; border:none; background:var(--red-pepper); color:var(--cream); font-family:'DM Sans',sans-serif; font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; cursor:pointer; transition:all 0.3s; font-weight:400; }
+  .btn-f:hover { background:var(--kalahari); color:var(--bone); }
+
+  .div { height:1px; background:linear-gradient(to right, transparent, var(--kalahari), transparent); max-width:180px; margin:0 auto; opacity:0.18; }
+
+  /* FONT SPECIMEN */
+  .fonts { margin:3rem 0; padding:2.5rem; background:var(--surface); border:1px solid rgba(226,216,204,0.03); }
+  .fr { margin-bottom:2rem; }
+  .fl { font-size:0.55rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--kalahari); margin-bottom:0.4rem; font-family:system-ui; }
+  .f1 { font-family:'Bodoni Moda',serif; font-size:2.5rem; color:var(--bone); }
+  .f2 { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:300; line-height:1.7; color:var(--cream); }
+  .f3 { font-family:'DM Sans',sans-serif; font-size:0.85rem; font-weight:300; letter-spacing:0.08em; color:var(--sand); }
+
+  /* COLOR MAP SECTION */
+  .color-map { margin:4rem 0; }
+  .color-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:8px; margin:2rem 0; }
+  .color-chip { padding:1.5rem 1rem 1rem; border-radius:2px; }
+  .color-chip .cn { font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; font-family:system-ui; opacity:0.8; margin-bottom:0.3rem; }
+  .color-chip .cv { font-size:0.7rem; font-family:monospace; opacity:0.6; }
+  .color-chip .cu { font-size:0.55rem; font-family:system-ui; opacity:0.4; margin-top:0.3rem; }
+
+  /* CSS OUTPUT */
+  .css-block { background:var(--surface); border:1px solid rgba(226,216,204,0.04); padding:2rem; margin:2rem 0; font-family:monospace; font-size:0.8rem; line-height:2; color:var(--sand); white-space:pre; overflow-x:auto; }
+  .css-block .prop { color:var(--sunset); }
+  .css-block .val { color:var(--cream); }
+  .css-block .cmt { color:var(--dust); opacity:0.4; }
+
+  /* FOOTER */
+  .footer { text-align:center; padding:4rem 2rem; border-top:1px solid rgba(226,216,204,0.04); background:var(--smoke); }
+  .footer img { width:180px; margin-bottom:1rem; filter:brightness(1.05) sepia(0.12); }
+  .footer span { font-size:0.6rem; letter-spacing:0.2em; opacity:0.25; font-family:'DM Sans',sans-serif; }
+</style>
+</head>
+<body>
+
+<div class="tag">FINAL &mdash; <strong>EXODUS V3 PALETTE</strong> &mdash; blessed</div>
+
+<!-- SWATCHES -->
+<div class="swatches">
+  <div class="sw" style="background:#100d0a;color:#e2d8cc;"><span class="hex">#100d0a</span><span class="lbl">void</span></div>
+  <div class="sw" style="background:#191510;color:#e2d8cc;"><span class="hex">#191510</span><span class="lbl">smoke</span></div>
+  <div class="sw" style="background:#4a3830;color:#e2d8cc;"><span class="hex">#4a3830</span><span class="lbl">deep</span></div>
+  <div class="sw" style="background:#6b3a35;color:#e2d8cc;"><span class="hex">#6b3a35</span><span class="lbl">pepper</span></div>
+  <div class="sw" style="background:#8c5c42;color:#e2d8cc;"><span class="hex">#8c5c42</span><span class="lbl">kalahari</span></div>
+  <div class="sw" style="background:#a0866b;color:#100d0a;"><span class="hex">#a0866b</span><span class="lbl">dust</span></div>
+  <div class="sw" style="background:#c4875e;color:#100d0a;"><span class="hex">#c4875e</span><span class="lbl">sunset</span></div>
+  <div class="sw" style="background:#c4b485;color:#100d0a;"><span class="hex">#c4b485</span><span class="lbl">sand</span></div>
+  <div class="sw" style="background:#e2d8cc;color:#100d0a;"><span class="hex">#e2d8cc</span><span class="lbl">cream</span></div>
+  <div class="sw" style="background:#ede5d8;color:#100d0a;"><span class="hex">#ede5d8</span><span class="lbl">bone</span></div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <img src="logo-light.png" class="logo-mark" alt="logo">
+  <img src="exodus-name-grey.png" class="exodus-name" alt="EXODUS">
+  <div class="subtitle">Tattoo Body Art</div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#">Philosophy</a><a href="#">Portfolio</a><a href="#">Process</a><a href="#">Locations</a><a href="#">Contact</a>
+</nav>
+
+<!-- MANIFESTO -->
+<section>
+  <span class="label">Manifesto</span>
+  <h2 class="title">The Body<br>as <span class="hi">Temple</span></h2>
+  <p class="body">Every line carries intention. Every mark is a conversation between ancient geometry and living flesh. This is not decoration — this is ritual.</p>
+  <div class="quote"><p>"I chose the name EXODUS because it speaks to transformation, not escape."</p></div>
+  <button class="btn">Begin Your Journey</button>
+  <button class="btn-f">Book a Session</button>
+</section>
+
+<div class="div"></div>
+
+<!-- FONT SYSTEM -->
+<section>
+  <span class="label">Font System</span>
+  <div class="fonts">
+    <div class="fr"><div class="fl">Display — Bodoni Moda</div><div class="f1">The Body as Temple</div></div>
+    <div class="fr"><div class="fl">Body — Cormorant Garamond Light</div><div class="f2">Every line carries intention. Every mark is a conversation between ancient geometry and living flesh. This is not decoration — this is ritual.</div></div>
+    <div class="fr"><div class="fl">UI / Labels — DM Sans Light</div><div class="f3">PHILOSOPHY &middot; PORTFOLIO &middot; PROCESS &middot; LOCATIONS &middot; CONTACT</div></div>
+  </div>
+</section>
+
+<!-- ELEMENTS -->
+<section>
+  <span class="label">UI Elements</span>
+  <div class="cards">
+    <div class="card"><h3>Blackwork</h3><p>Dense coverage, bold geometry, ancestral forms.</p></div>
+    <div class="card"><h3>Ornamental</h3><p>Flowing patterns built on sacred ratio and symmetry.</p></div>
+    <div class="card"><h3>Tribal Roots</h3><p>Honoring the lineage. Marks that carry meaning.</p></div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- COLOR MAP -->
+<section>
+  <span class="label">Color Map — Implementation Reference</span>
+  <div class="color-grid">
+    <div class="color-chip" style="background:#100d0a;color:#e2d8cc;"><div class="cn">void</div><div class="cv">#100d0a</div><div class="cu">page bg, darkest</div></div>
+    <div class="color-chip" style="background:#191510;color:#e2d8cc;"><div class="cn">smoke</div><div class="cv">#191510</div><div class="cu">nav bg, footer bg</div></div>
+    <div class="color-chip" style="background:#15120d;color:#e2d8cc;"><div class="cn">surface</div><div class="cv">#15120d</div><div class="cu">cards, panels</div></div>
+    <div class="color-chip" style="background:#4a3830;color:#e2d8cc;"><div class="cn">deep</div><div class="cv">#4a3830</div><div class="cu">borders, deep accent</div></div>
+    <div class="color-chip" style="background:#6b3a35;color:#e2d8cc;"><div class="cn">red-pepper</div><div class="cv">#6b3a35</div><div class="cu">CTA fill, danger</div></div>
+    <div class="color-chip" style="background:#8c5c42;color:#e2d8cc;"><div class="cn">kalahari</div><div class="cv">#8c5c42</div><div class="cu">primary accent, borders</div></div>
+    <div class="color-chip" style="background:#a0866b;color:#100d0a;"><div class="cn">dust</div><div class="cv">#a0866b</div><div class="cu">labels, muted text</div></div>
+    <div class="color-chip" style="background:#c4875e;color:#100d0a;"><div class="cn">sunset</div><div class="cv">#c4875e</div><div class="cu">highlights, hover</div></div>
+    <div class="color-chip" style="background:#c4b485;color:#100d0a;"><div class="cn">sand</div><div class="cv">#c4b485</div><div class="cu">secondary text, quotes</div></div>
+    <div class="color-chip" style="background:#e2d8cc;color:#100d0a;"><div class="cn">cream</div><div class="cv">#e2d8cc</div><div class="cu">primary text</div></div>
+    <div class="color-chip" style="background:#ede5d8;color:#100d0a;"><div class="cn">bone</div><div class="cv">#ede5d8</div><div class="cu">headings, bright</div></div>
+  </div>
+
+  <div class="css-block"><span class="cmt">/* EXODUS V3 — Final Palette */</span>
+<span class="prop">--void:</span> <span class="val">#100d0a;</span>         <span class="cmt">/* deep charcoal (Desert Noir) */</span>
+<span class="prop">--smoke:</span> <span class="val">#191510;</span>        <span class="cmt">/* warm dark */</span>
+<span class="prop">--surface:</span> <span class="val">#15120d;</span>      <span class="cmt">/* cards, panels */</span>
+<span class="prop">--deep:</span> <span class="val">#4a3830;</span>         <span class="cmt">/* deep warm brown */</span>
+<span class="prop">--red-pepper:</span> <span class="val">#6b3a35;</span>   <span class="cmt">/* muted oxide (Kalahari) */</span>
+<span class="prop">--kalahari:</span> <span class="val">#8c5c42;</span>     <span class="cmt">/* warm brown anchor */</span>
+<span class="prop">--dust:</span> <span class="val">#a0866b;</span>         <span class="cmt">/* dusty earth mid */</span>
+<span class="prop">--sunset:</span> <span class="val">#c4875e;</span>       <span class="cmt">/* warm amber highlight */</span>
+<span class="prop">--sand:</span> <span class="val">#c4b485;</span>         <span class="cmt">/* warm sand (Dune Dust) */</span>
+<span class="prop">--cream:</span> <span class="val">#e2d8cc;</span>        <span class="cmt">/* dusty cream text */</span>
+<span class="prop">--bone:</span> <span class="val">#ede5d8;</span>         <span class="cmt">/* lightest — headings */</span></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <img src="exodus-name-grey.png" alt="EXODUS"><br>
+  <span>&copy; MMXXVI EXODUS &middot; Pierre Marcel &middot; Bali</span>
+</footer>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>03 — KALAHARI DUSK</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;0,6..96,900;1,6..96,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --void: #13100c;
+    --bone: #d6cfc4;
+    --smoke: #1e1914;
+    --surface: #19150f;
+    --kalahari: #8c5c42;
+    --red-pepper: #6b3a35;
+    --sunset: #c4875e;
+    --grey-rose: #c7b4b5;
+    --ash: #625751;
+    --cream: #d6cfc4;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--void); color:var(--bone); font-family:'Crimson Pro',serif; overflow-x:hidden; }
+
+  .tag { position:fixed; top:0; left:0; right:0; z-index:100; background:var(--kalahari); color:#d6cfc4; text-align:center; padding:10px; font-size:11px; letter-spacing:0.4em; text-transform:uppercase; font-family:system-ui; font-weight:600; }
+
+  .swatches { display:flex; height:56px; margin-top:40px; }
+  .sw { flex:1; display:flex; align-items:flex-end; justify-content:center; font-size:9px; letter-spacing:0.12em; font-family:monospace; padding-bottom:6px; }
+
+  .hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; padding:6rem 2rem; }
+  .hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 40% 70%, rgba(140,92,66,0.07) 0%, transparent 55%), radial-gradient(ellipse at 60% 30%, rgba(107,58,53,0.04) 0%, transparent 50%); }
+
+  .logo-mark { width:52px; margin-bottom:2.5rem; opacity:0.4; filter:sepia(0.4) brightness(1.1) hue-rotate(-5deg); }
+  .exodus-name { width:min(600px, 85vw); margin-bottom:1rem; filter:brightness(1.05) sepia(0.2) saturate(0.9); }
+  .subtitle { font-size:0.7rem; letter-spacing:0.6em; text-transform:uppercase; color:var(--ash); font-family:'Outfit',sans-serif; font-weight:200; }
+
+  .nav { display:flex; justify-content:center; gap:2.5rem; padding:1.8rem; border-top:1px solid rgba(214,207,196,0.05); border-bottom:1px solid rgba(214,207,196,0.05); background:var(--smoke); }
+  .nav a { color:var(--bone); text-decoration:none; font-size:0.65rem; letter-spacing:0.35em; text-transform:uppercase; opacity:0.35; font-family:'Outfit',sans-serif; font-weight:300; transition:all 0.3s; }
+  .nav a:hover { opacity:1; color:var(--sunset); }
+
+  section { padding:5rem 2rem; max-width:880px; margin:0 auto; }
+  .label { font-size:0.6rem; letter-spacing:0.45em; text-transform:uppercase; color:var(--kalahari); margin-bottom:1rem; display:block; font-family:'Outfit',sans-serif; font-weight:300; }
+  .title { font-family:'Bodoni Moda',serif; font-size:clamp(2.2rem,5vw,3.8rem); font-weight:400; line-height:1.08; margin-bottom:2rem; }
+  .title .hi { color:var(--sunset); font-style:italic; }
+  .body { font-size:1.15rem; line-height:1.85; opacity:0.6; max-width:580px; font-weight:300; }
+
+  .quote { border-left:2px solid var(--red-pepper); padding:2rem 0 2rem 2rem; margin:4rem 0; }
+  .quote p { font-family:'Bodoni Moda',serif; font-size:1.4rem; font-style:italic; line-height:1.6; color:var(--grey-rose); }
+
+  .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin:3rem 0; }
+  .card { background:var(--surface); border:1px solid rgba(214,207,196,0.04); padding:2rem; transition:all 0.3s; }
+  .card:hover { border-color:var(--kalahari); background:rgba(140,92,66,0.04); }
+  .card h3 { font-family:'Bodoni Moda',serif; font-size:1.15rem; margin-bottom:0.5rem; }
+  .card p { font-size:0.85rem; opacity:0.45; line-height:1.6; }
+
+  .btn { display:inline-block; padding:0.9rem 2.8rem; margin-top:2rem; border:1px solid var(--kalahari); color:var(--sunset); background:transparent; font-family:'Outfit',sans-serif; font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; cursor:pointer; transition:all 0.3s; font-weight:300; }
+  .btn:hover { background:var(--kalahari); color:var(--cream); }
+  .btn-f { display:inline-block; padding:0.9rem 2.8rem; margin-top:1rem; margin-left:1rem; border:none; background:var(--red-pepper); color:var(--grey-rose); font-family:'Outfit',sans-serif; font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; cursor:pointer; transition:all 0.3s; font-weight:300; }
+  .btn-f:hover { background:var(--kalahari); color:var(--cream); }
+
+  .div { height:1px; background:linear-gradient(to right, transparent, var(--kalahari), transparent); max-width:180px; margin:0 auto; opacity:0.15; }
+
+  .fonts { margin:3rem 0; padding:2.5rem; background:var(--surface); border:1px solid rgba(214,207,196,0.03); }
+  .fr { margin-bottom:2rem; }
+  .fl { font-size:0.55rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--kalahari); margin-bottom:0.4rem; font-family:system-ui; }
+  .f1 { font-family:'Bodoni Moda',serif; font-size:2.5rem; }
+  .f2 { font-family:'Crimson Pro',serif; font-size:1.5rem; font-weight:300; line-height:1.7; }
+  .f3 { font-family:'Outfit',sans-serif; font-size:0.85rem; font-weight:200; letter-spacing:0.1em; }
+
+  .footer { text-align:center; padding:4rem 2rem; border-top:1px solid rgba(214,207,196,0.04); background:var(--smoke); }
+  .footer img { width:180px; margin-bottom:1rem; filter:brightness(1.05) sepia(0.2); }
+  .footer span { font-size:0.6rem; letter-spacing:0.2em; opacity:0.25; font-family:'Outfit',sans-serif; }
+</style>
+</head>
+<body>
+
+<div class="tag">03 — <strong>KALAHARI DUSK</strong> — deep warm brown + red pepper + grey rose + charcoal</div>
+
+<div class="swatches">
+  <div class="sw" style="background:#13100c;color:#d6cfc4;">void</div>
+  <div class="sw" style="background:#1e1914;color:#d6cfc4;">smoke</div>
+  <div class="sw" style="background:#625751;color:#d6cfc4;">ash</div>
+  <div class="sw" style="background:#6b3a35;color:#d6cfc4;">pepper</div>
+  <div class="sw" style="background:#8c5c42;color:#d6cfc4;">kalahari</div>
+  <div class="sw" style="background:#c4875e;color:#13100c;">sunset</div>
+  <div class="sw" style="background:#c7b4b5;color:#13100c;">rose</div>
+  <div class="sw" style="background:#d6cfc4;color:#13100c;">cream</div>
+</div>
+
+<div class="hero">
+  <img src="logo-light.png" class="logo-mark" alt="logo">
+  <img src="exodus-name-grey.png" class="exodus-name" alt="EXODUS">
+  <div class="subtitle">Tattoo Body Art</div>
+</div>
+
+<nav class="nav">
+  <a href="#">Philosophy</a><a href="#">Portfolio</a><a href="#">Process</a><a href="#">Locations</a><a href="#">Contact</a>
+</nav>
+
+<section>
+  <span class="label">Manifesto</span>
+  <h2 class="title">The Body<br>as <span class="hi">Temple</span></h2>
+  <p class="body">Every line carries intention. Every mark is a conversation between ancient geometry and living flesh. This is not decoration — this is ritual.</p>
+  <div class="quote"><p>"I chose the name EXODUS because it speaks to transformation, not escape."</p></div>
+  <button class="btn">Begin Your Journey</button>
+  <button class="btn-f">Book a Session</button>
+</section>
+
+<div class="div"></div>
+
+<section>
+  <span class="label">Font System</span>
+  <div class="fonts">
+    <div class="fr"><div class="fl">Display — Bodoni Moda</div><div class="f1">The Body as Temple</div></div>
+    <div class="fr"><div class="fl">Body — Crimson Pro Light</div><div class="f2">Every line carries intention. Every mark is a conversation between ancient geometry and living flesh.</div></div>
+    <div class="fr"><div class="fl">UI — Outfit Thin</div><div class="f3">PHILOSOPHY &middot; PORTFOLIO &middot; PROCESS &middot; LOCATIONS &middot; CONTACT</div></div>
+  </div>
+</section>
+
+<section>
+  <span class="label">Elements</span>
+  <div class="cards">
+    <div class="card"><h3>Blackwork</h3><p>Dense coverage, bold geometry, ancestral forms.</p></div>
+    <div class="card"><h3>Ornamental</h3><p>Flowing patterns built on sacred ratio and symmetry.</p></div>
+    <div class="card"><h3>Tribal Roots</h3><p>Honoring the lineage. Marks that carry meaning.</p></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <img src="exodus-name-grey.png" alt="EXODUS"><br>
+  <span>&copy; MMXXVI EXODUS &middot; Pierre Marcel &middot; Bali</span>
+</footer>
+</body>
+</html>

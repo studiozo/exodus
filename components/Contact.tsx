@@ -4,13 +4,8 @@ const Contact: React.FC = () => {
     return (
         <section className="contact-section" id="contact">
             <div className="contact-content">
-                <div className="contact-symbol">
-                    <svg viewBox="0 0 150 150">
-                        <circle className="contact-ring" cx="75" cy="75" r="70" />
-                        <polygon className="contact-ring" points="75,15 130,45 130,105 75,135 20,105 20,45" />
-                        <circle className="contact-ring" cx="75" cy="75" r="35" />
-                        <circle className="contact-ring" cx="75" cy="75" r="6" />
-                    </svg>
+                <div className="contact-symbol pm-logo">
+                    <img src="/images/branding/logo-light.svg" alt="EXODUS Symbol" className="contact-logo-img" />
                 </div>
 
                 <h2 className="contact-title">Begin Your<br />Transformation</h2>

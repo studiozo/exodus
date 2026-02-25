@@ -14,7 +14,7 @@ const Merch: React.FC = () => {
             alignItems: 'center', 
             justifyContent: 'center', 
             minHeight: '400px',
-            border: '1px solid rgba(242, 237, 230, 0.1)',
+            border: '1px solid rgba(226, 216, 204, 0.1)',
             maxWidth: '800px',
             margin: '0 auto',
             padding: '4rem'
