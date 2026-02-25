@@ -21,6 +21,7 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
                     <ul className="footer-links">
                         <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('portfolio'); }}>Work</a></li>
                         <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('inspo'); }}>Styles</a></li>
+                        <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('studio'); }}>Studio</a></li>
                         <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('merch'); }}>Store</a></li>
                     </ul>
                 </div>

@@ -4,24 +4,6 @@ const Villa: React.FC = () => {
     return (
         <section className="about-section">
             <div className="about-grid">
-                <div className="about-visual" style={{ background: '#0a0a0a' }}>
-                    {/* Villa Video Snippet */}
-                    <video
-                        src="/videos/villa/villa_snippet.mov"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.8 }}
-                    />
-                    <div className="about-symbol">
-                        <svg viewBox="0 0 100 100">
-                            <circle className="about-symbol-path" cx="50" cy="50" r="45" />
-                            <path className="about-symbol-path" d="M50,5 L50,95 M5,50 L95,50" />
-                        </svg>
-                    </div>
-                </div>
-
                 <div className="about-content">
                     <div className="section-header">
                         <span className="section-label">Immersion</span>
