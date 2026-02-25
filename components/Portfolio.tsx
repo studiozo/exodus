@@ -137,8 +137,9 @@ const Portfolio: React.FC<PortfolioProps> = ({ openLightbox }) => {
                         <div className="gallery-item" key={item.id} onClick={() => openLightbox(item.img)} style={{ cursor: 'zoom-in' }}>
                             <img
                                 src={item.img}
-                                alt={item.title}
+                                alt={`${item.title} — ${item.label} tattoo by Pierre Marcel, EXODUS Bali`}
                                 className="gallery-image"
+                                loading="lazy"
                             />
                             <div className="gallery-item-info">
                                 <span className="gallery-label">{item.label}</span>

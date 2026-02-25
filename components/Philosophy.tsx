@@ -48,7 +48,7 @@ const Philosophy: React.FC<PhilosophyProps> = ({ openLightbox }) => {
                      </p>
 
                      <div className="ancestral-full" onClick={() => lb('/images/ancestral/10_cave-art_handprints-eye-symbol-ochre.jpg')}>
-                         <img src="/images/ancestral/10_cave-art_handprints-eye-symbol-ochre.jpg" alt="Ancient cave art — handprints and eye symbol in ochre" />
+                         <img src="/images/ancestral/10_cave-art_handprints-eye-symbol-ochre.jpg" alt="Ancient cave art — handprints and eye symbol in ochre" loading="lazy" />
                      </div>
                      <p className="ancestral-caption">Prehistoric cave art — the first impulse to leave a mark</p>
 
@@ -67,10 +67,10 @@ const Philosophy: React.FC<PhilosophyProps> = ({ openLightbox }) => {
 
                      <div className="ancestral-grid-2">
                          <div className="ancestral-item" onClick={() => lb('/images/ancestral/09_preserved-hand_ancient-tribal-geometric-tattoo.jpg')}>
-                             <img src="/images/ancestral/09_preserved-hand_ancient-tribal-geometric-tattoo.jpg" alt="Preserved ancient tattooed hand" />
+                             <img src="/images/ancestral/09_preserved-hand_ancient-tribal-geometric-tattoo.jpg" alt="Preserved ancient tattooed hand — ancestral tribal tattoo history" loading="lazy" />
                          </div>
                          <div className="ancestral-item" onClick={() => lb('/images/ancestral/01_kalinga-elder_torso-geometric-linework.png')}>
-                             <img src="/images/ancestral/01_kalinga-elder_torso-geometric-linework.png" alt="Kalinga elder with geometric chest tattoos" />
+                             <img src="/images/ancestral/01_kalinga-elder_torso-geometric-linework.png" alt="Kalinga elder with geometric chest tattoos — traditional tribal blackwork" loading="lazy" />
                          </div>
                      </div>
                      <p className="ancestral-caption">Left: Preserved tattooed hand, thousands of years old · Right: Kalinga elder, Philippines — a living tradition</p>
@@ -90,13 +90,13 @@ const Philosophy: React.FC<PhilosophyProps> = ({ openLightbox }) => {
 
                      <div className="ancestral-grid-3">
                          <div className="ancestral-item" onClick={() => lb('/images/ancestral/03_polynesian-marquesan_full-body-traditional.png')}>
-                             <img src="/images/ancestral/03_polynesian-marquesan_full-body-traditional.png" alt="Marquesan warrior with full body traditional tattoos" />
+                             <img src="/images/ancestral/03_polynesian-marquesan_full-body-traditional.png" alt="Marquesan warrior with full body traditional Polynesian tattoos" loading="lazy" />
                          </div>
                          <div className="ancestral-item" onClick={() => lb('/images/ancestral/08_chin-tribe_elder-facial-tattoo-portrait.png')}>
-                             <img src="/images/ancestral/08_chin-tribe_elder-facial-tattoo-portrait.png" alt="Chin tribe elder with facial tattoos" />
+                             <img src="/images/ancestral/08_chin-tribe_elder-facial-tattoo-portrait.png" alt="Chin tribe elder with traditional facial tattoos" loading="lazy" />
                          </div>
                          <div className="ancestral-item" onClick={() => lb('/images/ancestral/07_mentawai_traditional-hand-palm-tattoos.png')}>
-                             <img src="/images/ancestral/07_mentawai_traditional-hand-palm-tattoos.png" alt="Mentawai woman showing traditional palm tattoos" />
+                             <img src="/images/ancestral/07_mentawai_traditional-hand-palm-tattoos.png" alt="Mentawai woman showing traditional palm tattoos — ancestral body art" loading="lazy" />
                          </div>
                      </div>
                      <p className="ancestral-caption">Polynesia · Myanmar · Indonesia — three continents, one sacred language</p>
@@ -107,10 +107,10 @@ const Philosophy: React.FC<PhilosophyProps> = ({ openLightbox }) => {
 
                      <div className="ancestral-grid-2">
                          <div className="ancestral-item" onClick={() => lb('/images/ancestral/02_amazonian-shipibo_chest-geometric-blackwork.png')}>
-                             <img src="/images/ancestral/02_amazonian-shipibo_chest-geometric-blackwork.png" alt="Shipibo woman with geometric chest blackwork" />
+                             <img src="/images/ancestral/02_amazonian-shipibo_chest-geometric-blackwork.png" alt="Amazonian Shipibo woman with geometric chest blackwork tattoos" loading="lazy" />
                          </div>
                          <div className="ancestral-item" onClick={() => lb('/images/ancestral/14_ramnami-tribe_man-full-body-script-tattoo.jpg')}>
-                             <img src="/images/ancestral/14_ramnami-tribe_man-full-body-script-tattoo.jpg" alt="Ramnami tribe elder with full body script tattoos" />
+                             <img src="/images/ancestral/14_ramnami-tribe_man-full-body-script-tattoo.jpg" alt="Ramnami tribe elder with full body script tattoos — sacred body art tradition" loading="lazy" />
                          </div>
                      </div>
                      <p className="ancestral-caption">Amazonian Shipibo, Peru · Ramnami Samaj, India</p>
@@ -136,10 +136,10 @@ const Philosophy: React.FC<PhilosophyProps> = ({ openLightbox }) => {
 
                      <div className="ancestral-grid-2">
                          <div className="ancestral-item" onClick={() => lb('/images/ancestral/11_chin-tribe_elder-woman-full-facial-tattoo-bw.jpg')}>
-                             <img src="/images/ancestral/11_chin-tribe_elder-woman-full-facial-tattoo-bw.jpg" alt="Chin tribe elder woman with full facial tattoo" />
+                             <img src="/images/ancestral/11_chin-tribe_elder-woman-full-facial-tattoo-bw.jpg" alt="Chin tribe elder woman with full facial tattoo — traditional blackwork" loading="lazy" />
                          </div>
                          <div className="ancestral-item" onClick={() => lb('/images/ancestral/12_chin-tribe_elder-woman-facial-tattoo-closeup-bw.jpg')}>
-                             <img src="/images/ancestral/12_chin-tribe_elder-woman-facial-tattoo-closeup-bw.jpg" alt="Chin tribe elder woman facial tattoo closeup" />
+                             <img src="/images/ancestral/12_chin-tribe_elder-woman-facial-tattoo-closeup-bw.jpg" alt="Chin tribe elder woman facial tattoo closeup — ancestral body art" loading="lazy" />
                          </div>
                      </div>
                      <p className="ancestral-caption">Chin tribe elders, Myanmar — the last generation of a fading tradition</p>
@@ -158,7 +158,7 @@ const Philosophy: React.FC<PhilosophyProps> = ({ openLightbox }) => {
                      <h2 className="chapter-title">The Craft Endures</h2>
 
                      <div className="ancestral-full" onClick={() => lb('/images/ancestral/15_traditional-hand-tap_process-closeup-bw.jpg')}>
-                         <img src="/images/ancestral/15_traditional-hand-tap_process-closeup-bw.jpg" alt="Traditional hand-tap tattoo process" />
+                         <img src="/images/ancestral/15_traditional-hand-tap_process-closeup-bw.jpg" alt="Traditional hand-tap tattoo process — ancient tattooing technique" loading="lazy" />
                      </div>
                      <p className="ancestral-caption">Hand-tap tattooing — the original technique, still alive</p>
 
@@ -181,13 +181,13 @@ const Philosophy: React.FC<PhilosophyProps> = ({ openLightbox }) => {
 
                      <div className="ancestral-grid-3">
                          <div className="ancestral-item" onClick={() => lb('/images/ancestral/04_modern-blackwork_hand-bold-geometric.png')}>
-                             <img src="/images/ancestral/04_modern-blackwork_hand-bold-geometric.png" alt="Modern blackwork hand piece" />
+                             <img src="/images/ancestral/04_modern-blackwork_hand-bold-geometric.png" alt="Modern blackwork hand tattoo — bold geometric design by EXODUS" loading="lazy" />
                          </div>
                          <div className="ancestral-item" onClick={() => lb('/images/ancestral/06_modern-blackwork_full-sleeves-tribal-bands.png')}>
-                             <img src="/images/ancestral/06_modern-blackwork_full-sleeves-tribal-bands.png" alt="Modern blackwork tribal sleeves" />
+                             <img src="/images/ancestral/06_modern-blackwork_full-sleeves-tribal-bands.png" alt="Modern blackwork tribal full sleeve tattoos — sacred geometry bands" loading="lazy" />
                          </div>
                          <div className="ancestral-item" onClick={() => lb('/images/ancestral/16_modern-blackwork_full-arm-tribal-geometric.jpg')}>
-                             <img src="/images/ancestral/16_modern-blackwork_full-arm-tribal-geometric.jpg" alt="Modern blackwork tribal geometric arm" />
+                             <img src="/images/ancestral/16_modern-blackwork_full-arm-tribal-geometric.jpg" alt="Modern blackwork tribal geometric arm tattoo — EXODUS continuation" loading="lazy" />
                          </div>
                      </div>
                      <p className="ancestral-caption">The lineage continues — modern sacred blackwork</p>

@@ -36,7 +36,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ openLightbox }) => {
                                 key={index}
                                 className={`testimonial-slide ${index === activeZoSlide ? 'active' : ''}`}
                             >
-                                <img src={img} alt={`ZØVIVAA Session ${index + 1}`} />
+                                <img src={img} alt={`Sacred blackwork tattoo session ${index + 1} — client experience at EXODUS Bali`} />
                             </div>
                         ))}
                         <div className="slider-nav">

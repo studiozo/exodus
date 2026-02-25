@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
 import { X, Menu, ArrowLeft } from 'lucide-react';
 import Home from './components/Home';
 import Philosophy from './components/Philosophy';
@@ -13,6 +14,7 @@ import Testimonials from './components/Testimonials';
 import Merch from './components/Merch';
 import AiContext from './components/AiContext';
 import Villa from './components/Villa';
+import { keyToPath, routeByPath, navItems } from './routes';
 
 // --- STYLES (Injected directly to ensure scope isolation and exact match) ---
 const styles = `
@@ -159,6 +161,8 @@ const styles = `
       cursor: pointer;
       flex-shrink: 0;
       max-width: 200px;
+      text-decoration: none;
+      color: inherit;
   }
   
   .logo-main {
@@ -503,6 +507,17 @@ const styles = `
       justify-content: center;
   }
 
+  .teaser-content .about-quote {
+      font-size: 1.3rem;
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+  }
+
+  .teaser-content .about-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+  }
+
   .teaser-image {
       width: 100%;
       aspect-ratio: 4/5;
@@ -526,14 +541,40 @@ const styles = `
 
   .centered-teaser {
       text-align: center;
-      max-width: 800px;
+      width: 100%;
+      max-width: 900px;
       margin: 0 auto;
+  }
+
+  .centered-teaser .section-label {
+      justify-content: center;
+  }
+
+  .centered-teaser .section-title {
+      margin-bottom: 2.5rem;
+  }
+
+  .centered-teaser .about-quote {
+      font-size: 1.3rem;
+      max-width: 750px;
+      margin: 0 auto 2rem;
+  }
+
+  .centered-teaser .about-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      max-width: 750px;
+      margin: 0 auto 1rem;
+  }
+
+  .centered-teaser-wide {
+      max-width: 1400px;
   }
 
    /* New Home Gallery (3 Previews + Thumbnails) */
    .home-gallery-container {
        width: 100%;
-       padding: 4rem 0;
+       padding: 3rem 0 2rem;
        display: flex;
        flex-direction: column;
        gap: 2rem;
@@ -1068,7 +1109,7 @@ const styles = `
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 1.5rem;
-      margin: 2.5rem 0 0.75rem;
+      margin: 3rem auto 0.75rem;
   }
 
   .ancestral-item {
@@ -1898,10 +1939,10 @@ const styles = `
       .ancestral-grid-2 { grid-template-columns: 1fr; gap: 1rem; }
       .ancestral-item { aspect-ratio: 4/3; }
 
-      .gallery-main-display { grid-template-columns: 1fr; gap: 0.5rem; }
+      .gallery-main-display { grid-template-columns: 1fr; gap: 0.5rem; aspect-ratio: 3/4; }
       .gallery-main-item:nth-child(2), .gallery-main-item:nth-child(3) { display: none; }
       .gallery-thumbnails { gap: 0.5rem; }
-      .thumbnail-item { width: 50px; height: 50px; }
+      .thumbnail-item { flex: 0 0 60px; height: 60px; }
 
       .contact-section { padding: 4rem 1.5rem; }
       .contact-symbol.pm-logo { width: 80px; height: 112px; margin: 0 auto 2rem; }
@@ -1929,12 +1970,46 @@ const styles = `
 
 export default function App() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [currentPage, setCurrentPage] = useState('home');
     const [lightboxImage, setLightboxImage] = useState<string | null>(null);
     const headerRef = useRef<HTMLElement>(null);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const isHome = location.pathname === '/';
 
     const openLightbox = (src: string) => setLightboxImage(src);
     const closeLightbox = () => setLightboxImage(null);
+
+    // --- SEO: Dynamic title, description, canonical, og:url ---
+    useEffect(() => {
+        const route = routeByPath(location.pathname);
+        const fallbackTitle = 'EXODUS | Sacred Blackwork Tattoo Bali — Pierre Marcel';
+        const fallbackDesc = 'Sacred blackwork body art by Pierre Marcel. Custom designs honoring the body\'s architecture. Based in Uluwatu, Bali.';
+
+        document.title = route?.title || fallbackTitle;
+
+        const setMeta = (attr: string, value: string, content: string) => {
+            let el = document.querySelector(`meta[${attr}="${value}"]`) as HTMLMetaElement | null;
+            if (!el) {
+                el = document.createElement('meta');
+                el.setAttribute(attr, value);
+                document.head.appendChild(el);
+            }
+            el.setAttribute('content', content);
+        };
+
+        setMeta('name', 'description', route?.description || fallbackDesc);
+
+        const canonical = `https://exodusbodyart.com${location.pathname === '/' ? '' : location.pathname}`;
+        let linkCanonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+        if (!linkCanonical) {
+            linkCanonical = document.createElement('link');
+            linkCanonical.setAttribute('rel', 'canonical');
+            document.head.appendChild(linkCanonical);
+        }
+        linkCanonical.setAttribute('href', canonical);
+
+        setMeta('property', 'og:url', canonical);
+    }, [location.pathname]);
 
     // --- EFFECTS ---
     useEffect(() => {
@@ -1995,7 +2070,7 @@ export default function App() {
         }, 100);
 
         return () => observer.disconnect();
-    }, [currentPage]);
+    }, [location.pathname]);
 
     // Mouse movement sacred geometry effect
     useEffect(() => {
@@ -2020,23 +2095,8 @@ export default function App() {
 
     const navigateTo = (page: string) => {
         setIsMenuOpen(false);
-        setCurrentPage(page);
+        navigate(keyToPath(page));
         window.scrollTo(0, 0);
-    };
-
-    const renderContent = () => {
-        if (currentPage === 'home') return <Home navigateTo={navigateTo} openLightbox={openLightbox} />;
-        if (currentPage === 'portfolio') return <Portfolio openLightbox={openLightbox} />;
-        if (currentPage === 'inspo') return <Inspo />;
-        if (currentPage === 'philosophy') return <Philosophy openLightbox={openLightbox} />;
-        if (currentPage === 'about') return <About />;
-        if (currentPage === 'testimonials') return <Testimonials openLightbox={openLightbox} />;
-        if (currentPage === 'merch') return <Merch />;
-        if (currentPage === 'ai-context') return <AiContext />;
-        if (currentPage === 'villa') return <Villa />;
-        if (currentPage === 'studio') return <Locations />;
-        if (currentPage === 'contact') return <Contact />;
-        return <Home navigateTo={navigateTo} openLightbox={openLightbox} />; // Default case
     };
 
     return (
@@ -2075,21 +2135,17 @@ export default function App() {
 
             {/* Navigation */}
             <header ref={headerRef} id="header">
-                <div className="logo" onClick={() => navigateTo('home')}>
+                <Link to="/" className="logo" onClick={() => window.scrollTo(0, 0)}>
                     <img src="/images/branding/exodus-name-light.svg" alt="EXODUS" className="exodus-name exodus-name-nav" />
                     <span className="logo-sub">Tattoo Body Art</span>
-                </div>
+                </Link>
 
-                <nav>
+                <nav aria-label="Main navigation">
                     {/* Desktop Menu */}
-                    <ul className="nav-links">
-                        <li><a href="#" className={currentPage === 'philosophy' ? 'active' : ''} onClick={(e) => { e.preventDefault(); navigateTo('philosophy'); }}>Philosophy</a></li>
-                        <li><a href="#" className={currentPage === 'portfolio' ? 'active' : ''} onClick={(e) => { e.preventDefault(); navigateTo('portfolio'); }}>Work</a></li>
-                        <li><a href="#" className={currentPage === 'studio' ? 'active' : ''} onClick={(e) => { e.preventDefault(); navigateTo('studio'); }}>Studio</a></li>
-                        <li><a href="#" className={currentPage === 'about' ? 'active' : ''} onClick={(e) => { e.preventDefault(); navigateTo('about'); }}>About</a></li>
-                        <li><a href="#" className={currentPage === 'testimonials' ? 'active' : ''} onClick={(e) => { e.preventDefault(); navigateTo('testimonials'); }}>Testimonials</a></li>
-                        <li><a href="#" className={currentPage === 'merch' ? 'active' : ''} onClick={(e) => { e.preventDefault(); navigateTo('merch'); }}>Store</a></li>
-                        <li><a href="#" className={currentPage === 'contact' ? 'active' : ''} onClick={(e) => { e.preventDefault(); navigateTo('contact'); }}>Contact</a></li>
+                    <ul className="nav-links" role="menubar">
+                        {navItems.map(item => (
+                            <li key={item.key}><Link to={item.path} className={location.pathname === item.path ? 'active' : ''} onClick={() => window.scrollTo(0, 0)}>{item.navLabel}</Link></li>
+                        ))}
                     </ul>
 
                     <a href="mailto:pierre@exodusbodyart.com?subject=Booking%20Inquiry" className="nav-cta">Book Now</a>
@@ -2108,39 +2164,29 @@ export default function App() {
                     <button style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', color: '#e2d8cc', background: 'transparent', border: 'none', cursor: 'pointer' }} onClick={() => setIsMenuOpen(false)}>
                         <X size={32} />
                     </button>
-                    {['Philosophy', 'Work', 'Studio', 'About', 'Testimonials', 'Store', 'Contact'].map((item) => (
-                        <button
-                            key={item}
-                            onClick={() => {
-                                // Map display name to internal page ID
-                                const pageMap: { [key: string]: string } = {
-                                    'Work': 'portfolio',
-                                    'Philosophy': 'philosophy',
-                                    'About': 'about',
-                                    'Testimonials': 'testimonials',
-                                    'Store': 'merch',
-                                    'Studio': 'studio',
-                                    'Contact': 'contact'
-                                };
-                                navigateTo(pageMap[item] || 'home');
-                            }}
+                    {navItems.map(item => (
+                        <Link
+                            key={item.key}
+                            to={item.path}
+                            onClick={() => { setIsMenuOpen(false); window.scrollTo(0, 0); }}
                             className="text-3xl font-serif text-[#e2d8cc] uppercase tracking-widest"
-                            style={{ fontSize: '2rem', fontFamily: 'Bodoni Moda, serif', color: '#e2d8cc', textTransform: 'uppercase', letterSpacing: '0.2em', background: 'none', border: 'none', cursor: 'pointer' }}
+                            style={{ fontSize: '2rem', fontFamily: 'Bodoni Moda, serif', color: '#e2d8cc', textTransform: 'uppercase', letterSpacing: '0.2em', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'none' }}
                         >
-                            {item}
-                        </button>
+                            {item.navLabel}
+                        </Link>
                     ))}
                 </div>
             )}
 
             {/* Return to Home FAB */}
-            <button
-                className={`return-home-btn ${currentPage !== 'home' ? 'visible' : ''}`}
-                onClick={() => navigateTo('home')}
-                style={{ pointerEvents: currentPage !== 'home' ? 'all' : 'none' }}
+            <Link
+                to="/"
+                className={`return-home-btn ${!isHome ? 'visible' : ''}`}
+                onClick={() => window.scrollTo(0, 0)}
+                style={{ pointerEvents: !isHome ? 'all' : 'none', textDecoration: 'none' }}
             >
                 <ArrowLeft size={16} /> Base
-            </button>
+            </Link>
 
             {/* Global Lightbox */}
             {lightboxImage && (
@@ -2155,11 +2201,24 @@ export default function App() {
             )}
 
             {/* Main Content Render */}
-            <main style={{ minHeight: '100vh', paddingTop: currentPage === 'home' ? 0 : '8rem' }}>
-                {renderContent()}
+            <main role="main" aria-label="Page content" style={{ minHeight: '100vh', paddingTop: isHome ? 0 : '8rem' }}>
+                <Routes>
+                    <Route path="/" element={<Home openLightbox={openLightbox} />} />
+                    <Route path="/portfolio" element={<Portfolio openLightbox={openLightbox} />} />
+                    <Route path="/styles" element={<Inspo />} />
+                    <Route path="/philosophy" element={<Philosophy openLightbox={openLightbox} />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/testimonials" element={<Testimonials openLightbox={openLightbox} />} />
+                    <Route path="/store" element={<Merch />} />
+                    <Route path="/index" element={<AiContext />} />
+                    <Route path="/private-sessions" element={<Villa />} />
+                    <Route path="/studio" element={<Locations />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="*" element={<Home openLightbox={openLightbox} />} />
+                </Routes>
             </main>
 
-            <Footer scrollToSection={navigateTo} />
+            <Footer />
         </>
     );
 }

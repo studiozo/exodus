@@ -20,7 +20,7 @@ const About: React.FC<AboutProps> = ({ openLightbox }) => {
                 <aside className="bio-sidebar">
                     <div className="bio-photo-placeholder" onClick={() => openLightbox("/images/pierre_artist_headshot.webp")} style={{ cursor: 'zoom-in' }}>
                         {/* Placeholder image logic - using a generic person placeholder or a solid color block with text if image fails */}
-                        <img src="/images/pierre_artist_headshot.webp" alt="Pierre Marcel" onError={(e) => {
+                        <img src="/images/pierre_artist_headshot.webp" alt="Pierre Marcel — sacred blackwork tattoo artist, EXODUS Bali" onError={(e) => {
                             e.currentTarget.style.display = 'none';
                             if (e.currentTarget.parentElement) {
                                 e.currentTarget.parentElement.innerText = 'Pierre Marcel';

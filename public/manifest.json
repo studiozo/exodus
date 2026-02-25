@@ -1,0 +1,16 @@
+{
+  "name": "EXODUS Tattoo Body Art",
+  "short_name": "EXODUS",
+  "description": "Sacred blackwork body art by Pierre Marcel. Custom tattoos in Uluwatu, Bali.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#100d0a",
+  "theme_color": "#100d0a",
+  "icons": [
+    {
+      "src": "/images/branding/logo-light.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

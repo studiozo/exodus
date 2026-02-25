@@ -1,0 +1,23 @@
+# EXODUS Tattoo Body Art
+# https://exodusbodyart.com
+
+User-agent: *
+Allow: /
+
+# AI Agents
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://exodusbodyart.com/sitemap.xml

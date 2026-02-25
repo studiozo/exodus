@@ -1,10 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-interface FooterProps {
-    scrollToSection: (id: string) => void;
-}
+const scrollTop = () => window.scrollTo(0, 0);
 
-const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
+const Footer: React.FC = () => {
     return (
         <footer>
             <div className="footer-content">
@@ -19,29 +18,29 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
                 <div className="footer-column">
                     <h4>Portfolio</h4>
                     <ul className="footer-links">
-                        <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('portfolio'); }}>Work</a></li>
-                        <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('inspo'); }}>Styles</a></li>
-                        <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('studio'); }}>Studio</a></li>
-                        <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('merch'); }}>Store</a></li>
+                        <li><Link to="/portfolio" onClick={scrollTop}>Work</Link></li>
+                        <li><Link to="/styles" onClick={scrollTop}>Styles</Link></li>
+                        <li><Link to="/studio" onClick={scrollTop}>Studio</Link></li>
+                        <li><Link to="/store" onClick={scrollTop}>Store</Link></li>
                     </ul>
                 </div>
 
                 <div className="footer-column">
                     <h4>Studio</h4>
                     <ul className="footer-links">
-                        <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>Pierre Marcel</a></li>
-                        <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('testimonials'); }}>Client Stories</a></li>
-                        <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('philosophy'); }}>Philosophy</a></li>
-                        <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('studio'); }}>The Studio</a></li>
+                        <li><Link to="/about" onClick={scrollTop}>Pierre Marcel</Link></li>
+                        <li><Link to="/testimonials" onClick={scrollTop}>Client Stories</Link></li>
+                        <li><Link to="/philosophy" onClick={scrollTop}>Philosophy</Link></li>
+                        <li><Link to="/studio" onClick={scrollTop}>The Studio</Link></li>
                     </ul>
                 </div>
 
                 <div className="footer-column">
                     <h4>Book</h4>
                     <ul className="footer-links">
-                        <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>Consultation</a></li>
-                        <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('villa'); }}>Private Sessions</a></li>
-                        <li><a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('agenda'); }}>Agenda</a></li>
+                        <li><Link to="/contact" onClick={scrollTop}>Consultation</Link></li>
+                        <li><Link to="/private-sessions" onClick={scrollTop}>Private Sessions</Link></li>
+                        <li><Link to="/contact" onClick={scrollTop}>Agenda</Link></li>
                     </ul>
                 </div>
 
@@ -62,7 +61,7 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
                 <span className="footer-copy">© MMXXVI EXODUS · Pierre Marcel · Tribal Roots</span>
                 <div className="footer-social">
                     <a href="https://www.instagram.com/pierremarcel.tattoos" target="_blank" rel="noopener noreferrer">Instagram</a>
-                    <a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('ai-context'); }} style={{ opacity: 0.1 }}>Index</a>
+                    <Link to="/index" onClick={scrollTop} style={{ opacity: 0.1 }}>Index</Link>
                 </div>
             </div>
         </footer>
